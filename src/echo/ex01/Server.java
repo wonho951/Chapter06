@@ -10,25 +10,19 @@ public class Server {
 	public static void main(String[] args) throws IOException {
 
 		/*
-		 * //소켓 프로그래밍 ServerSocket serverSocket = new ServerSocket(); ServerSocket.bind
-		 * (new InetSocketAddress("192.168.0.67", 10001));//IP 포트번호
-		 * 
-		 * System.out.println("<서버시작>");
-		 * System.out.println("==============================");
-		 * System.out.println("연결을 기다리고 있습니다.");
-		 * 
-		 * Socket socket = serverSocket.accept();
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * serverSocket.close();//얘도 닫아줘야함.
-		 */
+		 //소켓 프로그래밍 ServerSocket serverSocket = new ServerSocket(); ServerSocket.bind
+		 (new InetSocketAddress("192.168.0.67", 10001));//IP 포트번호
+		 
+		 System.out.println("<서버시작>");
+		  System.out.println("==============================");
+		  System.out.println("연결을 기다리고 있습니다.");
+		 
+		  Socket socket = serverSocket.accept();
 
+		  
+		  serverSocket.close();//얘도 닫아줘야함.
+		 */
+		
 		ServerSocket serverSocket = new ServerSocket();
 		serverSocket.bind(new InetSocketAddress("192.168.0.133", 10001)); // IP 포트번호
 
@@ -44,6 +38,7 @@ public class Server {
 		
 		
 		serverSocket.close();//얘도 닫아줘야함.
+		
 	}
 
 }
