@@ -102,9 +102,10 @@ public class Client {
 		
 			//메세지 보내기.
 			//보내는 메세지 키보드 입력	
-			String str = sc.nextLine();
+			String str = sc.nextLine();	//내부적으로 값이 들어오면 new String("안녕"); 이런식으로 생성됨.
 			
-			if(str.equals("/q")) {
+			if("/q".equals(str)) {	//이런식으로 사용하면 null포인트 해결할수 있음.좀더 좋은 코드임.
+				System.out.println("[접속 종료되었습니다.]");
 				break;
 			}
 				

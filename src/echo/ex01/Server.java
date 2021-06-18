@@ -104,13 +104,14 @@ public class Server {
 			
 			//실제 메세지 받기
 			String msg = br.readLine();
-			System.out.println("받은 메세지:" + msg);
+			
 			
 			if(msg == null) {	//null은 주소비교이기 때문에 == 이걸로 함. equals() 안씀.ㅇㅋ?
 				System.out.println("[클라이언트 접속 종료]");
 				break;
 			}
 			
+			System.out.println("받은 메세지:" + msg);
 			
 			//메세지 보내기.
 			bw.write(msg);	//쓰는거지 보내는 의미는 아님.
@@ -118,6 +119,9 @@ public class Server {
 			bw.flush();	//강제로 보냄.
 		}
 				
+		System.out.println("==============================");
+		System.out.println("<서버종료>");
+		
 		
 		//생략가능.
 		//br.close();
