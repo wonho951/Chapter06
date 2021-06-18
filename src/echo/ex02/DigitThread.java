@@ -18,6 +18,13 @@ public class DigitThread extends Thread{	//	Thread는 만들어져 있응께 사
 		//0~9까지 출력하는거 만듦
 		for (int i = 0; i <= 9; i++) {
 			System.out.println(i);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
 		}
 		
 		
