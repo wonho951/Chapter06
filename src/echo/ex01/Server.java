@@ -35,8 +35,8 @@ public class Server {
 		BufferedReader br = new BufferedReader(isr);	//제일 큰 빨대에 연결해서 공차 먹듯이ㅇㅇ
 		
 		
-		
-		
+		String msg = br.readLine();
+		System.out.println(msg);
 		
 		
 		

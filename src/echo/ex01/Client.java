@@ -34,6 +34,13 @@ public class Client {
 		String str = "안녕";
 		
 		bw.write(str);
+		bw.newLine();
+		bw.flush();
+		
+		
+		
+		
+		
 		
 		socket.close();
 	}
