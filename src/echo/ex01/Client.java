@@ -95,15 +95,24 @@ public class Client {
 		BufferedReader br = new BufferedReader(isr);
 		
 		//키보드 입력 스캐너
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 	
+		//스캐너-스트림 이용해서 만들기
+		InputStream in = System.in;
+		InputStreamReader sisr = new InputStreamReader(in);
+		BufferedReader sbr = new BufferedReader(sisr);
+		
+		
+		
 		//반복시켜주자
 		while (true) {
 		
 			//메세지 보내기.
 			//보내는 메세지 키보드 입력	
-			String str = sc.nextLine();	//내부적으로 값이 들어오면 new String("안녕"); 이런식으로 생성됨.
+			//String str = sc.nextLine();	//내부적으로 값이 들어오면 new String("안녕"); 이런식으로 생성됨.
 			
+			
+			String str = sbr.readLine();
 			if("/q".equals(str)) {	//이런식으로 사용하면 null포인트 해결할수 있음.좀더 좋은 코드임.
 				System.out.println("[접속 종료되었습니다.]");
 				break;
@@ -123,7 +132,10 @@ public class Client {
 		
 		System.out.println("<클라이언트 종료>");
 		
-		sc.close();
+		
+		
+		sbr.close();
+		//sc.close();
 		socket.close();
 	}
 
