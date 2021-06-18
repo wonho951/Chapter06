@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Client {
 
 	public static void main(String[] args) throws IOException{
-
+		/*
 		//다른 컴퓨터에서 작동할 애 --> 유저
 		Socket socket = new Socket();	//서버소켓 말고 유저쪽은 소켓임.
 		
@@ -24,7 +24,7 @@ public class Client {
 		
 		
 		System.out.println("[서버에 연결을 요청합니다.]");
-		socket.connect(new InetSocketAddress("183.96.42.64", 10001));
+		socket.connect(new InetSocketAddress("183.96.42.64", 10001));	//서버 아이피 포트해서 요청함.
 		System.out.println("[서버에 연결되었습니다.]");
 		
 		
@@ -34,28 +34,91 @@ public class Client {
 		//OutputStream out = new FileOutputStream("C:\\javaStudy\\file\\byteimg.jpg");
 		OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
 		BufferedWriter bw = new BufferedWriter(osw);
-		
-		
-	
 
-		//보내는 메세지 키보드 입력으로 바꿈
-		
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
-				
-		bw.write(str);
-		bw.newLine();
-		bw.flush();
-		
-		
 		//메세지 받기용 스트림	(서버에서 클라이언트로 받음)
 		InputStream is = socket.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
-		String reMsg = br.readLine();
+		//키보드 입력 스캐너
+		Scanner sc = new Scanner(System.in);
+	
+		//메세지 보내기.
+		//보내는 메세지 키보드 입력	
+		String str = sc.nextLine();
+			
+		//보내기
+		bw.write(str);
+		bw.newLine();
+		bw.flush();
 		
+
+		//메세지 받기
+		String reMsg = br.readLine();		
 		System.out.println("server: [" + reMsg + "]");
+		
+		
+		sc.close();
+		socket.close();
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		//반복시키러 가봅시다
+		//다른 컴퓨터에서 작동할 애 --> 유저
+		Socket socket = new Socket();	//서버소켓 말고 유저쪽은 소켓임.
+		
+		System.out.println("<클라이언트 시작>");
+		System.out.println("===================================");
+		
+		
+		System.out.println("[서버에 연결을 요청합니다.]");
+		socket.connect(new InetSocketAddress("183.96.42.64", 10001));	//서버 아이피 포트해서 요청함.
+		System.out.println("[서버에 연결되었습니다.]");
+		
+		
+		//메세지 보내기용 스트림	(클라이언트에서 서버로 보냄)
+		OutputStream os = socket.getOutputStream();	//아웃풋 조상이 같음.
+		// 기존 아웃풋 스트림 사용법
+		//OutputStream out = new FileOutputStream("C:\\javaStudy\\file\\byteimg.jpg");
+		OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
+		BufferedWriter bw = new BufferedWriter(osw);
+
+		//메세지 받기용 스트림	(서버에서 클라이언트로 받음)
+		InputStream is = socket.getInputStream();
+		InputStreamReader isr = new InputStreamReader(is, "UTF-8");
+		BufferedReader br = new BufferedReader(isr);
+		
+		//키보드 입력 스캐너
+		Scanner sc = new Scanner(System.in);
+	
+		//반복시켜주자
+		while (true) {
+		
+			//메세지 보내기.
+			//보내는 메세지 키보드 입력	
+			String str = sc.nextLine();
+			
+			if(str.equals("/q")) {
+				break;
+			}
+				
+			//보내기
+			bw.write(str);
+			bw.newLine();
+			bw.flush();
+			
+
+			//메세지 받기
+			String reMsg = br.readLine();		
+			System.out.println("server: [" + reMsg + "]");
+		}
+
 		
 		
 		sc.close();
