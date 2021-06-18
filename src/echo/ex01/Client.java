@@ -205,7 +205,8 @@ public class Client {
 				BufferedWriter sbw = new BufferedWriter(sosw);
 				
 				sbw.write("<클라이언트 종료>");
-				
+				sbw.newLine();
+				sbw.flush();
 				//System.out.println("<클라이언트 종료>");	<-- 이거 만든거임.
 				
 				
