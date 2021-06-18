@@ -16,7 +16,7 @@ public class Client {
 		
 		
 		System.out.println("[서버에 연결을 요청합니다.]");
-		socket.connect(new InetSocketAddress("192.168.0.67", 10001));
+		socket.connect(new InetSocketAddress("183.96.42.64", 10001));
 		System.out.println("[서버에 연결되었습니다.]");
 		
 		socket.close();

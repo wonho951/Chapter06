@@ -11,8 +11,8 @@ public class Server {
 
 		// 소켓 프로그래밍
 		ServerSocket serverSocket = new ServerSocket();
-		serverSocket.bind(new InetSocketAddress("192.168.0.67", 10001));
-		
+		serverSocket.bind(new InetSocketAddress("183.96.42.64", 10001));
+		//포트는 항구라고 생각.
 		
 		System.out.println("<서버시작>");
 		System.out.println("==============================");
