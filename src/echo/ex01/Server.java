@@ -1,9 +1,12 @@
 package echo.ex01;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,8 +16,8 @@ public class Server {
 	public static void main(String[] args) throws IOException {
 
 		// 소켓 프로그래밍
-		ServerSocket serverSocket = new ServerSocket();
-		serverSocket.bind(new InetSocketAddress("183.96.42.64", 10001));
+		ServerSocket serverSocket = new ServerSocket();	//메모리에 올림
+		serverSocket.bind(new InetSocketAddress("183.96.42.64", 10001));	//IP 포트번호 /바인딩 세팅함.
 		//포트는 항구라고 생각.
 		
 		System.out.println("<서버시작>");
@@ -22,21 +25,33 @@ public class Server {
 		System.out.println("연결을 기다리고 있습니다.");
 		
 		
-		Socket socket = serverSocket.accept();
+		Socket socket = serverSocket.accept();	//서버랑 클라이언트랑 서로 연결고리임
 		//클라이언트 누군가 오면 어쎕트()안에 new socket이 만들어져서 socket에 담긴다.
 		
 		
 		System.out.println("클라이언트가 연결 되었습니다.");
 		
 		
-		//메세지 받기용
+		//메세지 받기용 스트림	(클라이언트에서 서버로 받음)
 		InputStream is = socket.getInputStream();	// 주스트림--> 걍 달라고함.(처음 빨대 꽂고)
 		InputStreamReader isr = new InputStreamReader(is, "UTF-8");	//중간빨대랑 처음 빨대 연결해줌.
 		BufferedReader br = new BufferedReader(isr);	//제일 큰 빨대에 연결해서 공차 먹듯이ㅇㅇ
 		
 		
 		String msg = br.readLine();
-		System.out.println(msg);
+		System.out.println("받은 메세지:" + msg);
+		
+		
+		
+		//메세지 보내기용 스트림	(서버에서 클라이언트로)
+		OutputStream os = socket.getOutputStream();
+		OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
+		BufferedWriter bw = new BufferedWriter(osw);
+		
+		
+		bw.write(msg);	//쓰는거지 보내는 의미는 아님.
+		bw.newLine();
+		bw.flush();	//강제로 보냄.
 		
 		
 		
