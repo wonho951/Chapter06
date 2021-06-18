@@ -3,11 +3,6 @@ package echo.ex03;
 public class UpperThread extends Thread{
 
 	
-	
-	
-	
-	
-	
 	@Override
 	public void run() {
 		
@@ -21,6 +16,8 @@ public class UpperThread extends Thread{
 				e.printStackTrace();
 			}
 		}
-			
+		
+		
+		
 	}
 }
