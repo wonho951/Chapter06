@@ -121,6 +121,7 @@ public class Client {
 		}
 
 		
+		System.out.println("<클라이언트 종료>");
 		
 		sc.close();
 		socket.close();
