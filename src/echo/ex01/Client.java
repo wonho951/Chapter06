@@ -1,6 +1,8 @@
 package echo.ex01;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -18,6 +20,14 @@ public class Client {
 		System.out.println("[서버에 연결을 요청합니다.]");
 		socket.connect(new InetSocketAddress("183.96.42.64", 10001));
 		System.out.println("[서버에 연결되었습니다.]");
+		
+		
+		//메세지 보내기용 스트림
+		OutputStream os = socket.getOutputStream();
+		// 기존 아웃풋 스트림 사용법
+		//OutputStream out = new FileOutputStream("C:\\javaStudy\\file\\byteimg.jpg");
+		
+		
 		
 		socket.close();
 	}

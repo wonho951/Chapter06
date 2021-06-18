@@ -1,6 +1,9 @@
 package echo.ex01;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,6 +27,19 @@ public class Server {
 		
 		
 		System.out.println("클라이언트가 연결 되었습니다.");
+		
+		
+		//메세지 받기용
+		InputStream is = socket.getInputStream();	// 주스트림--> 걍 달라고함.(처음 빨대 꽂고)
+		InputStreamReader isr = new InputStreamReader(is);	//중간빨대랑 처음 빨대 연결해줌.
+		BufferedReader br = new BufferedReader(isr);	//제일 큰 빨대에 연결해서 공차 먹듯이ㅇㅇ
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		socket.close();
