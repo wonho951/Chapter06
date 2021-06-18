@@ -1,8 +1,10 @@
 package echo.ex01;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -23,11 +25,15 @@ public class Client {
 		
 		
 		//메세지 보내기용 스트림
-		OutputStream os = socket.getOutputStream();
+		OutputStream os = socket.getOutputStream();	//아웃풋 조상이 같음.
 		// 기존 아웃풋 스트림 사용법
 		//OutputStream out = new FileOutputStream("C:\\javaStudy\\file\\byteimg.jpg");
+		OutputStreamWriter osw = new OutputStreamWriter(os);
+		BufferedWriter bw = new BufferedWriter(osw);
 		
+		String str = "안녕";
 		
+		bw.write(str);
 		
 		socket.close();
 	}

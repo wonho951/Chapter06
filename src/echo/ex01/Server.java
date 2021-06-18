@@ -31,7 +31,7 @@ public class Server {
 		
 		//메세지 받기용
 		InputStream is = socket.getInputStream();	// 주스트림--> 걍 달라고함.(처음 빨대 꽂고)
-		InputStreamReader isr = new InputStreamReader(is);	//중간빨대랑 처음 빨대 연결해줌.
+		InputStreamReader isr = new InputStreamReader(is, "UTF-8");	//중간빨대랑 처음 빨대 연결해줌.
 		BufferedReader br = new BufferedReader(isr);	//제일 큰 빨대에 연결해서 공차 먹듯이ㅇㅇ
 		
 		
