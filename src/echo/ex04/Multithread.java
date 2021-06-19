@@ -15,7 +15,7 @@ public class Multithread {
 			
 			System.out.println(ch);
 			
-			Thread.sleep(500);
+			Thread.sleep(500);//딜레이 시간을 늘림
 		}
 	}
 

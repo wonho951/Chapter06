@@ -10,7 +10,7 @@ public class DigitImpl implements Runnable{
 			System.out.println(i);
 			
 			try {
-				Thread.sleep(500);
+				Thread.sleep(500);//딜레이 시간을 늘림
 			} catch (InterruptedException e) {
 				
 				e.printStackTrace();
